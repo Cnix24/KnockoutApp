@@ -1,0 +1,232 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Jeff's 30th</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <!-- Custom styles for this template -->
+    <link href="../wwwroot/Style/Style.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="myModal" class="modal fade">
+        <div id="" class="modal-dialog">
+            <div class="modal-content bg-white text-dark text-center">
+                <img src="../wwwroot/Style/Images/vivalasvegascards.jpg" class="card-img-top" alt="...">
+                <div class="display-3">Welcome</div>
+                <h5>Jeff's 30th Birthday!</h5>
+                <div class="modal-body">
+                    <p>Before entering, please provide just your first and last names.</p>
+                    <form>
+                        <div class="form-group">
+                            <input data-bind="value: firstName" type="text" class="form-control" placeholder="First">
+                            <input data-bind="value: lastName" type="text" class="form-control" placeholder="Last">
+                        </div>
+                        <button id="modalEnter" type="submit" data-dismiss="modal" class="btn btn-warning">Enter</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    @*@using InviteApp.Models
+    @{
+        var user = new Profile();
+        var db = new InviteDetailsEntities();
+        user = db.Profiles.Where(x => x.FirstName == NameCheck).FirstOrDefault();
+        }
+        //
+        //user.FirstName = "!";
+        //user.LastName = "!";
+        //user.EmailAddress = "!";
+        //user.PhoneNumber = "!";
+        //user.PairingName = "!";
+        //user.PhotoId = 99;
+        //user.RSVPStatus = true;
+        //user.PlusOnes = 99;
+        //user.TotalRSVPCount = 99;
+        //user.ArrivalDate = DateTime.Now;
+        //user.DepartureDate = DateTime.Now;
+        //user.Hotel = "!";
+        //user.DinnerRSVPCount = 99;
+        //user.FoodRestrictions = "!";
+        //if (nameCheck.Length > 2)*@
+
+    </script>
+    <!--Background cycler-->
+    <ul class="background-slideshow">
+        <li><span>Image 01</span></li>
+        <li><span>Image 02</span></li>
+        <li><span>Image 03</span></li>
+        <li><span>Image 04</span></li>
+        <li><span>Image 05</span></li>
+        <li><span>Image 06</span></li>
+    </ul>
+    <!--Background cycler-->
+    <!-- Vertical navbar -->
+    <div class="vertical-nav" id="sidebar">
+        <ul class="nav flex-column mb-0 py-4">
+            <li class="nav-item">
+                <a href="#profile-corner" class="nav-link font-italic">
+                    Home
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#rsvp" class="nav-link font-italic">
+                    RSVP
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#itinerary" class="nav-link font-italic">
+                    Itinerary
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#profile" class="nav-link font-italic">
+                    Profile
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#photos" class="nav-link font-italic">
+                    Photos
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#help" class="nav-link font-italic">
+                    Help
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="page-content p-4" id="content">
+        <!-- Toggle button -->
+        <button id="sidebarCollapse" type="button" class="btn btn-dark rounded-pill shadow-sm px-4 mb-4"><i class="fas fa-ellipsis-h text-light"></i></button>
+
+        <!--top text-->
+        <h1 id="top-text">Jeff's 30th</h1>
+        <h1 id="top-text">Birthday</h1>
+        <h1 id="top-text">In Vegas!</h1>
+
+
+        <!---Profile Card-->
+        <div class="card bg-dark" style="width: 18rem;" id="profile-corner">
+            @*<img src="../wwwroot/Style/Images/sinatra.jpg" class="card-img-top" alt="...">*@
+            <div class="card-body">
+                <h5 data-bind="text: fullName"></h5>
+                <h6>
+                    RSVP Status:
+                    <span class="text-info" data-bind="text: rsvpStatus"></span>
+                </h6>
+                <!---Pieces that only show if they rsvp YES-->
+                <p class="card-text" data-bind="visible: displayCheck">Guest count: <span data-bind="text: rsvpCount"></span></p>
+
+            </div>
+        </div>
+        <!---RSVP Section-->
+        <row class="p-0">
+            <div class="card-container" id="rsvp">
+                <h1>RSVP</h1>
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="card bg-dark">
+                            <div class="card-body">
+                                <h5 class="card-title">Will you be joining us, <span data-bind="text: firstName"></span>?</h5>
+                                <!--part one-->
+                                <h6>RSVP Status: <span class="text-info" data-bind="text: rsvpStatus"></span></h6><br />
+                                <button data-bind="click: $root.toggleRsvpYes" class="btn btn-success">Yes</button>
+                                <button data-bind="click: $root.toggleRsvpNo" class="btn btn-danger">No</button><br />
+
+                                <a tabindex="0" data-bind="visible: noCard" class="btn btn-lg btn-warning mt-3" role="button" data-toggle="popover" data-trigger="focus" title="I HOPE YOU HAVE FUN SITTING AT HOME!">Wow. Rude.</a>
+
+                                <!--part two-->
+                                <div class="container mt-3" data-bind="visible: displayCheck">
+                                    <h6>Will you have any added guests?</h6><br />
+                                    <button data-bind="click: $root.toggleAddersYes" class="btn btn-success">Yes</button>
+                                    <button data-bind="click: $root.toggleAddersNo" class="btn btn-danger">No</button>
+                                </div>
+
+                                <!--part three-->
+                                <div class="container mt-3" data-bind="visible: displayCheck2">
+                                    <strong>Added Guests: </strong>
+                                    <form>
+                                        <input type="number" min="1" max="5" value="0" data-bind="value: addedGuests" />
+                                        <input type="submit" data-bind="click: $root.moreAdditions" class="btn btn-info" />
+                                    </form>
+                                </div>
+                                <!---final popovers-->
+                                <a tabindex="0" data-bind="visible: noCard2" class="btn btn-lg btn-info mt-3" role="button" data-toggle="popover" data-trigger="focus" title="Can't Wait!">All set!</a>
+                                <a tabindex="0" data-bind="visible: noCard2" class="btn btn-lg btn-info mt-3" role="button" data-toggle="popover" data-trigger="focus" title="Can't Wait!">RSVP Count: <strong data-bind="text: rsvpCount"></strong></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </row>
+        <div class="card-container" id="booking">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12" id="head-container">
+                    <h1>Hotels</h1>
+                </div>
+                <div class="col-sm-12 col-md-3 col-lg-3" id="btn-container">
+                    <button class="btn btn-info" data-bind="click:moveRight">Up</button>
+                    <button class="btn btn-info" data-bind="click:moveLeft">Down</button>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-6" id="hotel-container">
+                    <ul data-bind="foreach: {data: items, beforeRemove:hideItem, afterAdd:showItem}">
+                        <li id="hotel-lis" data-bind="fadeVisible:$index() >= $root.minIndex() && $index() <= $root.maxIndex()">
+                            <span id="hotel-image" data-bind="html:$data"></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-12 col-md-3 col-lg-3">
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <row class="p-0">
+            <div id="help">
+                <h2>Help</h2>
+                <p>You really need help? Ok. Just text me. I made this site lol.</p>
+                <h5>Calvin: 707.696.3436</h5>
+            </div>
+        </row>
+    </div>
+
+
+
+
+    <!-- Bootstrap core JavaScript -->
+
+    <script src="https://kit.fontawesome.com/18c241e1cd.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type='text/javascript' src='../Scripts/knockout-3.5.0.js'></script>
+    <script type="text/javascript" src="~/wwwroot/Script/KoViewModels.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script type="text/javascript" src="../wwwroot/Script/site.js"></script>
+
+
+</body>
+
+</html>
+

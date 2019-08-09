@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="InviteDetailsModelStoreContainer" CdmEntityContainer="InviteDetailsEntities">
+    <EntitySetMapping Name="Profiles">
+      <EntityTypeMapping TypeName="InviteDetailsModel.Profile">
+        <MappingFragment StoreEntitySet="Profiles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PairingName" ColumnName="PairingName" />
+          <ScalarProperty Name="PhotoId" ColumnName="PhotoId" />
+          <ScalarProperty Name="RSVPStatus" ColumnName="RSVPStatus" />
+          <ScalarProperty Name="PlusOnes" ColumnName="PlusOnes" />
+          <ScalarProperty Name="TotalRSVPCount" ColumnName="TotalRSVPCount" />
+          <ScalarProperty Name="ArrivalDate" ColumnName="ArrivalDate" />
+          <ScalarProperty Name="DepartureDate" ColumnName="DepartureDate" />
+          <ScalarProperty Name="Hotel" ColumnName="Hotel" />
+          <ScalarProperty Name="DinnerRSVPCount" ColumnName="DinnerRSVPCount" />
+          <ScalarProperty Name="FoodRestrictions" ColumnName="FoodRestrictions" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

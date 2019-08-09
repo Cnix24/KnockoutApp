@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="InviteDetailsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'InviteDetails.dbo.Itinerary' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Itinerary">
+          <Property Name="DayOfWeekend" Type="varchar" MaxLength="10" />
+          <Property Name="TimeFrame" Type="time" Precision="7" />
+          <Property Name="Title" Type="varchar" MaxLength="30" />
+          <Property Name="LocationName" Type="varchar" MaxLength="50" />
+          <Property Name="LocationAddress" Type="varchar" MaxLength="100" />
+          <Property Name="Comment" Type="varchar" MaxLength="100" />
+        </EntityType>-->
+  <EntityType Name="Profiles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="25" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" />
+    <Property Name="EmailAddress" Type="varchar" MaxLength="100" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="15" />
+    <Property Name="PairingName" Type="varchar" MaxLength="50" />
+    <Property Name="PhotoId" Type="int" />
+    <Property Name="RSVPStatus" Type="bit" />
+    <Property Name="PlusOnes" Type="int" />
+    <Property Name="TotalRSVPCount" Type="int" />
+    <Property Name="ArrivalDate" Type="date" />
+    <Property Name="DepartureDate" Type="date" />
+    <Property Name="Hotel" Type="varchar" MaxLength="40" />
+    <Property Name="DinnerRSVPCount" Type="int" />
+    <Property Name="FoodRestrictions" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityContainer Name="InviteDetailsModelStoreContainer">
+    <EntitySet Name="Profiles" EntityType="Self.Profiles" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

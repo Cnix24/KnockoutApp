@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="InviteDetailsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'InviteDetails.dbo.Itinerary' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Itinerary">
+          <Property Name="DayOfWeekend" Type="varchar" MaxLength="10" />
+          <Property Name="TimeFrame" Type="time" Precision="7" />
+          <Property Name="Title" Type="varchar" MaxLength="30" />
+          <Property Name="LocationName" Type="varchar" MaxLength="50" />
+          <Property Name="LocationAddress" Type="varchar" MaxLength="100" />
+          <Property Name="Comment" Type="varchar" MaxLength="100" />
+        </EntityType>-->
+        <EntityType Name="Profiles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="25" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="EmailAddress" Type="varchar" MaxLength="100" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="15" />
+          <Property Name="PairingName" Type="varchar" MaxLength="50" />
+          <Property Name="PhotoId" Type="int" />
+          <Property Name="RSVPStatus" Type="bit" />
+          <Property Name="PlusOnes" Type="int" />
+          <Property Name="TotalRSVPCount" Type="int" />
+          <Property Name="ArrivalDate" Type="date" />
+          <Property Name="DepartureDate" Type="date" />
+          <Property Name="Hotel" Type="varchar" MaxLength="40" />
+          <Property Name="DinnerRSVPCount" Type="int" />
+          <Property Name="FoodRestrictions" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityContainer Name="InviteDetailsModelStoreContainer">
+          <EntitySet Name="Profiles" EntityType="Self.Profiles" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="InviteDetailsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Profile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmailAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="PairingName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PhotoId" Type="Int32" />
+          <Property Name="RSVPStatus" Type="Boolean" />
+          <Property Name="PlusOnes" Type="Int32" />
+          <Property Name="TotalRSVPCount" Type="Int32" />
+          <Property Name="ArrivalDate" Type="DateTime" Precision="0" />
+          <Property Name="DepartureDate" Type="DateTime" Precision="0" />
+          <Property Name="Hotel" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="DinnerRSVPCount" Type="Int32" />
+          <Property Name="FoodRestrictions" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="InviteDetailsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Profiles" EntityType="Self.Profile" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="InviteDetailsModelStoreContainer" CdmEntityContainer="InviteDetailsEntities">
+          <EntitySetMapping Name="Profiles">
+            <EntityTypeMapping TypeName="InviteDetailsModel.Profile">
+              <MappingFragment StoreEntitySet="Profiles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PairingName" ColumnName="PairingName" />
+                <ScalarProperty Name="PhotoId" ColumnName="PhotoId" />
+                <ScalarProperty Name="RSVPStatus" ColumnName="RSVPStatus" />
+                <ScalarProperty Name="PlusOnes" ColumnName="PlusOnes" />
+                <ScalarProperty Name="TotalRSVPCount" ColumnName="TotalRSVPCount" />
+                <ScalarProperty Name="ArrivalDate" ColumnName="ArrivalDate" />
+                <ScalarProperty Name="DepartureDate" ColumnName="DepartureDate" />
+                <ScalarProperty Name="Hotel" ColumnName="Hotel" />
+                <ScalarProperty Name="DinnerRSVPCount" ColumnName="DinnerRSVPCount" />
+                <ScalarProperty Name="FoodRestrictions" ColumnName="FoodRestrictions" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

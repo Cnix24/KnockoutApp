@@ -1,0 +1,369 @@
+﻿#myModal {
+    background-image: url(Images/bigwheel2.jpg);
+    background-repeat: no-repeat;
+    background-color: black;
+    background-position: center;
+    background-size: 100vw;
+}
+
+
+
+
+.background-slideshow {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 0;
+    list-style: none;
+}
+
+.background-slideshow li span {
+    color: transparent;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    opacity: 0;
+    z-index: 0;
+    -webkit-backface-visibility: hidden;
+    -webkit-animation: imageAnimation 180s linear infinite;
+    animation: imageAnimation 180s linear infinite;
+}
+
+.background-slideshow li:nth-child(1) span {
+    background-image: url(Images/classicsign.jpg);
+}
+
+.background-slideshow li:nth-child(2) span {
+    background-image: url(Images/neon-flashing-lights-las-vegas-footage-023166679_prevstill.jpeg);
+    -webkit-animation-delay: 30s;
+    animation-delay: 30s;
+}
+
+.background-slideshow li:nth-child(3) span {
+    background-image: url(Images/sinatra.jpg);
+    -webkit-animation-delay: 60s;
+    animation-delay: 60s;
+}
+
+.background-slideshow li:nth-child(4) span {
+    background-image: url(Images/encorespa.jpg);
+    -webkit-animation-delay: 90s;
+    animation-delay: 90s;
+}
+
+.background-slideshow li:nth-child(5) span {
+    background-image: url(Images/purplesubtle.jpg);
+    -webkit-animation-delay: 120s;
+    animation-delay: 120s;
+}
+
+.background-slideshow li:nth-child(6) span {
+    background-image: url(Images/romanbath.jpg);
+    -webkit-animation-delay: 150s;
+    animation-delay: 150s;
+}
+
+
+@-webkit-keyframes imageAnimation {
+    0% {
+        opacity: 0;
+        -webkit-animation-timing-function: ease-in;
+    }
+
+    8% {
+        opacity: 0.8;
+        -webkit-transform: scale(1.05);
+        -webkit-animation-timing-function: ease-out;
+    }
+
+    17% {
+        opacity: 0.8;
+        -webkit-transform: scale(1.1);
+    }
+
+    22% {
+        opacity: 0;
+        -webkit-transform: scale(1.1) translateY(-20%);
+    }
+
+    25% {
+        opacity: 0;
+        -webkit-transform: scale(1.1) translateY(-100%);
+    }
+
+    100% {
+        opacity: 0
+    }
+}
+
+@keyframes imageAnimation {
+    0% {
+        opacity: 0;
+        animation-timing-function: ease-in;
+    }
+
+    8% {
+        opacity: 0.8;
+        transform: scale(1.05);
+        animation-timing-function: ease-out;
+    }
+
+    17% {
+        opacity: 0.8;
+        transform: scale(1.1);
+    }
+
+    22% {
+        opacity: 0;
+        -webkit-transform: scale(1.1) translateY(-20%);
+    }
+
+    25% {
+        opacity: 0;
+        transform: scale(1.1) translateY(-100%);
+    }
+
+    100% {
+        opacity: 0
+    }
+}
+
+
+
+
+
+body {
+    background-color: black;
+    color: white;
+}
+
+#top-text {
+    margin: 1em;
+    padding: 0;
+    font-size: 100px;
+}
+
+
+
+.vertical-nav {
+    color: white;
+    min-width: 4rem;
+    width: 8rem;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-right: 5px solid rgba(255,255,255,0.6);
+    box-shadow: 0px 25px 48px -21px rgba(255,255,255,1);
+    -webkit-box-shadow: 0px 25px 48px -21px rgba(255,255,255,1);
+    -moz-box-shadow: 0px 25px 48px -21px rgba(255,255,255,1);
+    transition: all 0.4s;
+    background: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 1px;
+    z-index: 3;
+}
+
+#sidebarCollapse{
+    position: fixed;
+}
+
+
+li a {
+    color: black;
+}
+
+
+.vertical-nav  a:hover {
+    background-color: #7ef9ff;
+    color: black;
+}
+
+
+#content {
+    z-index: 2;
+    display: block;
+    position: relative;
+}
+
+.page-content {
+    width: calc(100% - 7rem);
+    margin-left: 7rem;
+    transition: all 0.4s;
+}
+
+/* for toggle behavior */
+
+#sidebar.active {
+    margin-left: -17rem;
+}
+
+#content.active {
+    width: 100%;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -17rem;
+    }
+
+        #sidebar.active {
+            margin-left: 0;
+        }
+
+    #content {
+        width: 100%;
+        margin: 0;
+    }
+
+        #content.active {
+            margin-left: 7rem;
+            width: calc(100% - 7rem);
+        }
+}
+
+#profile-corner {
+    position: absolute;
+    margin: 0.5em;
+    top: 0;
+    right: 0;
+}
+
+/*#myCanvas {
+    left: 0px;
+    top: 0px;
+    display: block;
+    width: 100vw;
+    max-width: 100%;
+    transform: translateZ(0);
+    z-index: 1;
+}*/
+
+
+/*.welcome-note {
+    font-size: 90px;
+    font-weight: 700;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#jeff {
+    color: white;
+    font-size: 85%;
+    display: none;
+}
+
+#last-line {
+    color: white;
+    font-size: 85%;
+    display: none;
+}
+
+#wrapper {
+    z-index: 3;
+}
+
+@media(max-width:800px) {
+    .welcome-note {
+        font-size: 20px;
+    }
+}*/
+
+
+
+
+.card {
+    position: center;
+}
+
+.card-container {
+    color: #7ef9ff;
+    border: 5px solid rgba(255,255,255,0.6);
+    box-shadow: 0px 25px 48px -21px rgba(255,255,255,1);
+    -webkit-box-shadow: 0px 25px 48px -21px rgba(255,255,255,1);
+    -moz-box-shadow: 0px 25px 48px -21px rgba(255,255,255,1);
+    background: rgba(255,255,255,0.4);
+    text-align: center;
+    justify-content: space-between;
+    align-content: center;
+    margin-top: 10em;
+    padding: 1em;
+}
+
+#rsvp .card{
+    position: center;
+    align-content: center;
+    width: 100%;
+    color: white;
+    text-shadow: none;
+    margin: auto;
+}
+
+#rsvp {
+    margin-top: 60em;
+    text-align: center;
+
+}
+
+
+#help {
+    text-align: center;
+    border: 1em solid black;
+    height: 100%;
+    width: 100%;
+    margin-top: 10em;
+}
+
+
+
+#booking h1{
+    text-align: center;
+}
+
+#btn-container button{
+    align-content: center;
+    margin: 5em;
+    vertical-align: middle;
+    width: 100%;
+}
+
+
+
+#hotel-container ul{
+    text-align: center;
+}
+
+#hotel-container li {
+    display: inline;
+    cursor: pointer;
+}
+
+#hotel-container li:after {
+    content: "\A";
+    white-space: pre;
+}
+
+
+#hotel-image img:hover{
+    transform: scale(2.5);
+}
+
+#hotel-image img {
+    max-height: 300px;
+    max-width: 500px;
+    width: 100%;
+    height: 20vh;
+    object-fit: cover;
+    margin: 1em;
+    border: groove;
+    border-color:aqua;
+}
